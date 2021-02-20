@@ -126,7 +126,6 @@ func filterCryptoData(data string, fsyms string, tsyms string) string {
 
     dataFiltered := response{}
     if fsyms == "" || tsyms == "" {
-        fmt.Println("1")
         dataFiltered = respData
     } else {
         dataFiltered = response{
