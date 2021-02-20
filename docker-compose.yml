@@ -1,0 +1,27 @@
+version: "3.1"
+
+services:
+  go_service:
+    build: .
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${LISTEN_PORT}:8080"
+    networks:
+      cryptonet:
+
+  mysql_service:
+    image: "mysql:8.0.23"
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${MYSQL_PORT}:3306"
+    networks:
+      cryptonet:
+        aliases:
+          - db
+
+networks:
+  cryptonet:
